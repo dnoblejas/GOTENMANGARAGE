@@ -6,13 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.gotenmangarage.navegacion.NavigationWrapper
 import com.example.gotenmangarage.ui.theme.GOTENMANGARAGETheme
-import com.example.gotenmangarage.pantallas.PantallaSplash
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,18 +18,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             GOTENMANGARAGETheme {
                 val navController = rememberNavController()
-                Scaffold(modifier = Modifier.fillMaxSize()) { _ ->   // O innerPadding si lo quieres usar
-                    NavigationWrapper(navController = navController)
+                val clientId = "1021178547690-6eb9k02eq7ls75rjtnsio3j1rn1jh6rs.apps.googleusercontent.com"
+
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    NavigationWrapper(
+                        navController = navController,
+                        activity = this,
+                        clientId = clientId
+                    )
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    GOTENMANGARAGETheme {
-        PantallaSplash(navController = rememberNavController())
     }
 }

@@ -1,5 +1,6 @@
 package com.example.gotenmangarage.pantallas
 
+import android.app.Activity
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -23,7 +24,7 @@ import com.example.gotenmangarage.R
 import kotlinx.coroutines.delay
 
 @Composable
-fun PantallaSplash(navController: NavController) {
+fun PantallaSplash(navController: NavController, activity: Activity, clientId: String) {
     val scaleAnim = remember { Animatable(0f) }   // Logo rebote
     val alphaTextAnim = remember { Animatable(0f) } // Texto fade-in
     val offsetYTextAnim = remember { Animatable(30f) } // Texto slide-up
